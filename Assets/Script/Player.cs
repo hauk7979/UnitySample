@@ -29,7 +29,10 @@ namespace Script
 
         private void OnCollisionEnter(Collision other)
         {
-            isLanding = true;
+            if (other.gameObject.CompareTag($"Floor"))
+            {
+                isLanding = true;
+            }
         }
     }
 }
