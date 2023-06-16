@@ -18,7 +18,7 @@ namespace Script
         {
             if (Input.GetMouseButtonDown(1))
             {
-                Instantiate(ballPrefab);
+                Instantiate(ballPrefab, transform.position, Quaternion.identity);
             }
         }
     }
