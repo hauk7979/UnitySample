@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Script
@@ -7,18 +8,28 @@ namespace Script
         private Rigidbody _rigidbody;
         private const float JumpSpeed = 5.0f;
 
+        public bool isLanding = false;
+        
         // Start is called before the first frame update
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            isLanding = false;
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0)) {
+            if (isLanding && Input.GetMouseButtonDown(0))
+            {
+                isLanding = false;
                 _rigidbody.velocity = Vector3.up * JumpSpeed;
             }
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            isLanding = true;
         }
     }
 }
