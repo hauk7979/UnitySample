@@ -6,7 +6,7 @@ namespace Script
     public class Player : MonoBehaviour
     {
         private Rigidbody _rigidbody;
-        private const float JumpSpeed = 5.0f;
+        private const float JumpSpeed = 12.0f;
 
         public bool isLanding = false;
         
